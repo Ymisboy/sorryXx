@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小人道歉</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+       .apology-container {
+            text-align: center;
+        }
+
+       .emoji {
+            font-size: 100px;
+        }
+
+       .message {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+
+       .buttons {
+            margin-top: 20px;
+        }
+
+       .buttons button {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="apology-container">
+        <div class="emoji">🙇‍♂️</div>
+        <div class="message">对不起对不起 下次不敢了</div>
+        <div class="buttons">
+            <button id="forgive">原谅</button>
+            <button id="angry">生气</button>
+        </div>
+    </div>
+    <script>
+        const apologyContainer = document.querySelector('.apology-container');
+
+        function showForgiven() {
+            apologyContainer.innerHTML = `
+                <div class="emoji">🤗</div>
+                <div class="message">是我对你的关心不够，除去工作的时间，我还老想着自己一个人娱乐，却没有想着我们一起的时间，这样跟你没有老公有什么区别，我会想想怎么平衡这些，以后避免这种幼稚的场景 </div>
+            `;
+        }
+
+        const forgiveButton = document.getElementById('forgive');
+        const angryButton = document.getElementById('angry');
+
+        forgiveButton.addEventListener('click', showForgiven);
+
+        angryButton.addEventListener('click', function () {
+            apologyContainer.innerHTML = `
+                <div class="emoji">😭</div>
+                <div class="message">姐姐重新选，求求了</div>
+                <div class="buttons">
+                    <button id="newForgive">原谅</button>
+                </div>
+            `;
+            const newForgiveButton = document.getElementById('newForgive');
+            newForgiveButton.addEventListener('click', showForgiven);
+        });
+    </script>
+</body>
+
+</html>    
